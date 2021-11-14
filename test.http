@@ -1,0 +1,292 @@
+###Create channel###
+#when creating a channelput the name of the user as the name of the channel
+POST  http://localhost:5000/api/streaming/channel/create HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+   "authorized": false,
+   "latencyMode": "NORMAL",
+   "name": "SaveToDB",
+   "recordingConfigurationArn": "arn:aws:ivs:eu-west-1:284218009595:recording-configuration/b0UJWXpXmNdo",
+   "type": "STANDARD",
+}
+
+###get channel###
+POST  http://localhost:8080/api/streaming/channel HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "arn": "arn:aws:ivs:eu-west-1:284218009595:channel/0McPWsNgx86j"
+}
+
+###delete channel###
+POST  http://localhost:8080/api/streaming/channel/delete HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "arn": "arn:aws:ivs:eu-west-1:284218009595:channel/0McPWsNgx86j"
+}
+
+
+###get channels###
+#to get all channel you need to send an empty body, to get the channels of a spesefic user you need to specify his name
+POST  http://localhost:8080/api/streaming/channels HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "filterByName": "TEST"
+}
+
+###get stream###
+POST  http://localhost:8080/api/streaming/stream HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "channelArn": "arn:aws:ivs:eu-west-1:284218009595:channel/0McPWsNgx86j"
+}
+
+###stop stream###
+POST  http://localhost:8080/api/streaming/stream/stop HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "channelArn": "arn:aws:ivs:eu-west-1:284218009595:channel/0McPWsNgx86j"
+}
+
+
+###get streams###
+Post  http://localhost:5000/api/streaming/streamByArn HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2MjkxMDk4MDMsImV4cCI6MTYyOTcxNDYwMywiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.4ArvCKhBCYVEjCsqC0lPUGeKVtluAdlqaecMasbz40c
+Content-type: application/json
+
+{
+  "arn": "arn:aws:ivs:eu-west-1:284218009595:channel/sqU8cwBarrTK"
+}
+
+###get vods###
+Post  http://localhost:5000/api/streaming/vodByArn HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2MjkxMzcxOTAsImV4cCI6MTYyOTc0MTk5MCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.Rlgxs4IG6sBRGLs1sz7nbup4oHRN5GVvqml9BjUj26M
+Content-type: application/json
+
+{
+  "arn": "arn:aws:ivs:eu-west-1:284218009595:channel/sqU8cwBarrTK"
+}
+
+
+###Create recording configuration###
+POST  http://localhost:8080/api/streaming/recording/create HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "destinationConfiguration": {
+    "s3": {
+      "bucketName": "modern-stream"
+    }
+  },
+  "name": "TEST1"
+}
+
+###get recording config###
+POST  http://localhost:8080/api/streaming/recording HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "arn": "arn:aws:ivs:eu-west-1:284218009595:recording-configuration/Y00JYyjql2UJ"
+}
+
+###Delete recording configuration###
+POST  http://localhost:8080/api/streaming/recording/delete HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "arn": "arn:aws:ivs:eu-west-1:284218009595:recording-configuration/W00qtlCnchXP"
+}
+###
+POST http://localhost:5000/api/streaming/stream/publish HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2Mjg5MzM5NDEsImV4cCI6MTYyOTUzODc0MSwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.97JipMrkwV4WpsSmPSJjx2Abfq5HX8e7GKNB7aDScZM
+Content-type: application/json
+
+{
+  "title": "req.body.title",
+  "description": "req.body.description",
+  "playbackUrl": "req.body.playbackUrl",
+  "streamer": "req.body.streamer",
+  "channelArn": "req.body.channelArn",
+  "streamerId": "req.body.streamerId"
+}
+
+### VOD
+GET  http://localhost:5000/api/streaming/vod HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGUxYWEzN2ZhNjZjNTUxY2M0M2M1M2QiLCJpYXQiOjE2MjY5NzAxMjAsImV4cCI6MTYyNzU3NDkyMCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.jHUvs7KA9BJceiPiqxKxArYAPU6ltlhFkLSSaWfQeF8
+
+### Chat
+POST  http://localhost:5000/api/streaming/stream/Chat HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2MzA2MTEyNjYsImV4cCI6MTYzMTIxNjA2NiwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.1qPGrdzrXxBcSz7dclfU33A5ST-3D6qm087qZ-c3NpA
+Content-type: application/json
+
+{
+  "socketId" : "cBqgfwqkck0wCsCnAAAH"
+
+}
+
+### get stream by id 
+GET  http://localhost:5000/api/streaming/streamByUser/610bb6b9a556a11118cb732a HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2MzAzMTc0MDYsImV4cCI6MTYzMDkyMjIwNiwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.IdJaPOqmVj7DnT2O9uHFICqvFAQjilpnQ5gUIpmhhmM
+
+### Social media authentication (Entry points for browser) ###
+
+POST http://localhost:5000/api/authentication/local/signup HTTP/1.1
+Content-type: application/json
+
+{
+  "username": "ayyoubHaj",
+  "email": "hajjajiayyoub1@gmail.com",
+  "phoneNumber": "0669720245",
+  "password": "test.123"
+}
+###
+POST http://localhost:5000/api/authentication/local/login HTTP/1.1
+Content-type: application/json
+
+{
+  "email": "hajjajiayyoub@gmail.com",
+  "password": "test.369"
+}
+
+### Reset Password , you should send email and you will recive a varefication code 
+POST  http://localhost:5000/api/user/resetPassword HTTP/1.1
+Content-type: application/json
+
+{
+  "email": "hajjajiayyoub@gmail.com"
+}
+
+### Google ###
+GET  http://localhost:5000/api/authentication/google/start HTTP/1.1
+
+### Facebbok ###
+GET  http://localhost:5000/api/authentication/facebook/start HTTP/1.1
+
+
+
+### Profile
+
+### Update name
+PATCH  http://localhost:5000/api/user/610bb6b9a556a11118cb732a HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2MzAzNDgyNjYsImV4cCI6MTYzMDk1MzA2NiwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.OHKrNVjnce-4fedDV-ntKUDCx0g4t6IrP6cEmC0SMA8
+Content-type: application/json
+
+{
+  "username": "Ayyoub",
+  "email" : "hajjajiayyoub@gmail.com",
+  "phoneNumber": "0669720245"
+}
+
+### Get my info
+GET  http://localhost:5000/api/user/60e1bd4ffc4dee54b45d2125 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2Mjk3NDgyMjAsImV4cCI6MTYzMDM1MzAyMCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.BwPJUUeLxs-dpSZ0xcOeZnP5OshxwuSdu-pLg9JE8gg
+Content-type: application/json
+
+### get users
+GET  http://localhost:5000/api/user/users HTTP/1.1
+
+#### Tournements ######
+
+## create tournement ##
+
+POST http://localhost:5000/api/tournement/create HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDIyNTkxMjk4NDM3ODczNTg3OTYiLCJpYXQiOjE2MjUyMTg3NDQsImV4cCI6MTYyNTgyMzU0NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.KjKrCjd00d0yLAgMj0IlJ5_tbqraccTQMAfy_ULfGnM
+Content-type: application/json
+
+{
+  "title": "lets fight",
+  "type": "Double Elimination",
+  "players": "32",
+  "team":"1 player",
+  "game": "Free fire",
+  "creator": "Ayyoub"
+}
+
+###
+POST http://localhost:5000/api/tournement/delete/60fd55364e1c9a1a3cbca69e HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGUxYWEzN2ZhNjZjNTUxY2M0M2M1M2QiLCJpYXQiOjE2MjcyMTE3NTIsImV4cCI6MTYyNzgxNjU1MiwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.vTSxZ3a5nY4_S3jObXqFUqwDHQoU2njMNWDJL2Pk3-M
+Content-type: application/json
+
+{
+  "creator": "Ayyub"
+}
+
+####
+GET http://localhost:5000/api/tournement/ HTTP/1.1
+
+####
+GET http://localhost:5000/api/tournement/60fd5956e439f5238cd7cd3f HTTP/1.1
+
+
+###
+POST http://localhost:5000/api/tournement/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGUxYWEzN2ZhNjZjNTUxY2M0M2M1M2QiLCJpYXQiOjE2MjY5NjAxNTQsImV4cCI6MTYyNzU2NDk1NCwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.2K6QK0pYQBtUCkyVOTxOtL_yFU48eQ37cGlUhGXcvuE
+Content-type: application/json
+
+{
+  "creator": "60e1aa37fa66c551cc43c53d"
+}
+
+###
+POST http://localhost:5000/api/tournement/join/61029e97e9d59f04f4ff654c HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGUxYWEzN2ZhNjZjNTUxY2M0M2M1M2QiLCJpYXQiOjE2Mjc3MzEwODMsImV4cCI6MTYyODMzNTg4MywiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.BrgPbpjY2GeDj9OJIk9ML0up8wHpt4kOkUeUZ3Fmf0k
+Content-type: application/json
+
+{
+  "player": "Ayyoub",
+  "playerId": "test"
+}
+
+###
+POST http://localhost:5000/api/tournement/winner/61053639dd5bf62474650db3 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGUxYWEzN2ZhNjZjNTUxY2M0M2M1M2QiLCJpYXQiOjE2Mjc3MzEwODMsImV4cCI6MTYyODMzNTg4MywiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.BrgPbpjY2GeDj9OJIk9ML0up8wHpt4kOkUeUZ3Fmf0k
+Content-type: application/json
+
+{
+  "winner": "Ayyoub"
+}
+
+###
+POST http://localhost:5000/api/user/check/60e1aa37fa66c551cc43c53d HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGUxYWEzN2ZhNjZjNTUxY2M0M2M1M2QiLCJpYXQiOjE2Mjc5OTY1NDIsImV4cCI6MTYyODYwMTM0MiwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.nGIcq5_eWMTxIWgXctxHv84yJdVhjFroBiIiKHa6sHc
+Content-type: application/json
+
+{
+  "channelId": "60e1aa37fa66c551cc43c53d",
+  "channel": "ayyoubHaj"
+}
+
+###
+POST http://localhost:5000/api/user/unfollow/60e1aa37fa66c551cc43c53d HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGUxYWEzN2ZhNjZjNTUxY2M0M2M1M2QiLCJpYXQiOjE2Mjc5OTY1NDIsImV4cCI6MTYyODYwMTM0MiwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.nGIcq5_eWMTxIWgXctxHv84yJdVhjFroBiIiKHa6sHc
+Content-type: application/json
+
+{
+  "channelId": "60e442b773d8f91ffcda7ea0",
+  "channel": "allaki_driss"
+}
+
+### games
+
+POST http://localhost:5000/api/games/create HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBiYjZiOWE1NTZhMTExMThjYjczMmEiLCJpYXQiOjE2MjkxMDYzNzUsImV4cCI6MTYyOTcxMTE3NSwiYXVkIjoicHVibGljIiwiaXNzIjoibW9kZXJuLXN0cmVhbSJ9.Jmo9oD_QfbmPo3-M7pRD8aybEU_ul6ub0XlrKpwEtLY
+Content-type: application/json
+
+{
+  "title": "fifa",
+  "description": "bla bla"
+}

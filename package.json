@@ -1,0 +1,49 @@
+{
+  "name": "modern-stream-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayy-oub/modern-stream-API.git"
+  },
+  "author": "INETECH",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ivs": "^3.18.0",
+    "@hapi/joi": "^17.1.1",
+    "aws-sdk": "^2.971.0",
+    "bcryptjs": "^2.4.3",
+    "convict": "^6.1.0",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.14",
+    "multer": "^1.4.3",
+    "multer-s3": "^2.9.0",
+    "nodemailer": "^6.6.3",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.2.0",
+    "socket.io-stream": "^0.9.1"
+  },
+  "bugs": {
+    "url": "https://github.com/ayy-oub/modern-stream-API/issues"
+  },
+  "homepage": "https://github.com/ayy-oub/modern-stream-API#readme"
+}
